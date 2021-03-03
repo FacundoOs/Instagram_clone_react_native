@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
 const Story = ({imageUri, name}) => {
-  console.log({imageUri});
   return (
     <View>
       <View style={styles.container}>

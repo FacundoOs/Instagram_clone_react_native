@@ -7,10 +7,8 @@ const Posts = (postsData) => {
     <View>
       <FlatList
         data={postsData.post}
-        // keyExtractor={({postsData.post.user.name}) => name}
         renderItem={({item}) => <Post post={item} />}
-        keyExtractor={item => item.user.name}
-
+        keyExtractor={(item) => item.id}
       />
     </View>
   );

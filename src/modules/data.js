@@ -1,5 +1,6 @@
 export const data = [
   {
+    id: 1,
     user: {
       imageUri:
         'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
@@ -13,6 +14,7 @@ export const data = [
   },
 
   {
+    id: 2,
     user: {
       imageUri:
         'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
@@ -26,6 +28,7 @@ export const data = [
   },
 
   {
+    id: 3,
     user: {
       imageUri:
         'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8cGVvcGxlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
@@ -39,6 +42,7 @@ export const data = [
   },
 
   {
+    id: 4,
     user: {
       imageUri:
         'https://images.unsplash.com/photo-1535295972055-1c762f4483e5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzN8fHBlb3BsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
@@ -51,6 +55,7 @@ export const data = [
     postedAt: '1 hour ago',
   },
   {
+    id: 5,
     user: {
       imageUri:
         'https://images.unsplash.com/photo-1463453091185-61582044d556?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBlb3BsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
@@ -64,6 +69,7 @@ export const data = [
     postedAt: '1 hour ago',
   },
   {
+    id: 6,
     user: {
       imageUri:
         'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fHBlb3BsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',

@@ -1,5 +1,12 @@
-import React from 'react';
-import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import HeartIcon from 'react-native-vector-icons/AntDesign';
 import CommentIcon from 'react-native-vector-icons/Fontisto';
@@ -7,6 +14,19 @@ import ShareIcon from 'react-native-vector-icons/Ionicons';
 import BookmarkIcon from 'react-native-vector-icons/FontAwesome';
 
 const Post = ({post}) => {
+  const [isLiked, setIsLiked] = useState(false);
+  const [likesCount, setLikesCount] = useState(post.likesCount);
+
+  const onLikePressed = () => {
+    const amount = isLiked ? -1 : 1;
+    setLikesCount(likesCount + amount);
+    setIsLiked(!isLiked);
+  };
+
+  useEffect(() => {
+    setLikesCount(likesCount);
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.header_container}>
@@ -24,13 +44,19 @@ const Post = ({post}) => {
       <View style={styles.footer_container}>
         <View style={styles.icons_container}>
           <View style={styles.left_icons}>
-            <HeartIcon name="hearto" size={20} />
+            <TouchableWithoutFeedback onPress={onLikePressed}>
+              {isLiked ? (
+                <HeartIcon name="heart" size={20} color={'#c30000'} />
+              ) : (
+                <HeartIcon name="hearto" size={20} />
+              )}
+            </TouchableWithoutFeedback>
             <CommentIcon name="comment" size={20} />
             <ShareIcon name="paper-plane-outline" size={20} />
           </View>
           <BookmarkIcon name="bookmark-o" size={20} />
         </View>
-        <Text style={styles.likes_counter}>{post.likesCount} likes</Text>
+        <Text style={styles.likes_counter}>{likesCount} likes</Text>
         <Text style={styles.caption}>
           <Text style={{fontWeight: 'bold'}}>{post.user.name}</Text>{' '}
           {post.caption}

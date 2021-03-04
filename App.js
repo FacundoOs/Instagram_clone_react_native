@@ -8,7 +8,7 @@
 
 import 'react-native-gesture-handler';
 import React from 'react';
-import {StatusBar, SafeAreaView} from 'react-native';
+import {StatusBar, SafeAreaView, View, StyleSheet, Image} from 'react-native';
 import HomeScreen from './src/screens/HomeScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -20,8 +20,36 @@ import FoundationIcon from 'react-native-vector-icons/Foundation';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
+import {createStackNavigator} from '@react-navigation/stack';
+import ShareIcon from 'react-native-vector-icons/Ionicons';
+import logo from './src/assets/images/Instagram-Logo.png'
 
 const Tab = createBottomTabNavigator();
+
+const HomeStack = createStackNavigator();
+
+const HomeStackScreen = () => {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          headerTitle: () => (
+            <Image source={logo} resizeMode="contain" style={{width: 120}} />
+          ),
+          headerTitleAlign: "left",
+          headerRight: () => (
+            <View style={styles.header_icons}>
+              <FeatherIcon name="plus-square" size={25} />
+              <ShareIcon name="paper-plane-outline" size={25} />
+            </View>
+          ),
+        }}
+      />
+    </HomeStack.Navigator>
+  );
+};
 
 const App: () => React$Node = () => {
   return (
@@ -57,7 +85,7 @@ const App: () => React$Node = () => {
           activeTintColor: '#000',
           inactiveTintColor: '#777777',
         }}>
-        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Home" component={HomeStackScreen} />
         <Tab.Screen name="Discovery" component={DiscoveryScreen} />
         <Tab.Screen name="Post" component={CreatePostScreen} />
         <Tab.Screen name="Notifications" component={NotificationsScreen} />
@@ -68,3 +96,10 @@ const App: () => React$Node = () => {
 };
 
 export default App;
+const styles = StyleSheet.create({
+  header_icons: {
+    flexDirection: 'row',
+    width: 80,
+    justifyContent: 'space-around',
+  },
+});

@@ -14,24 +14,27 @@ const Post = ({post}) => {
           <Image style={styles.image} source={{uri: post.user.imageUri}} />
           <Text style={styles.name}>{post.user.name}</Text>
         </View>
-        <View style={styles.header_rigth}>
-          <Icon name="dots-three-vertical" size={18} />
+        <View>
+          <Icon name="dots-three-horizontal" size={18} />
         </View>
       </View>
       <View>
         <Image style={styles.post_image} source={{uri: post.imageUri}} />
       </View>
       <View style={styles.footer_container}>
-        <View style={styles.icons_container} >
-          <View style={styles.left_icons} >
+        <View style={styles.icons_container}>
+          <View style={styles.left_icons}>
             <HeartIcon name="hearto" size={20} />
             <CommentIcon name="comment" size={20} />
             <ShareIcon name="paper-plane-outline" size={20} />
           </View>
-            <BookmarkIcon name="bookmark-o" size={20} />
+          <BookmarkIcon name="bookmark-o" size={20} />
         </View>
-        <Text style={styles.likes_counter}>{post.likesCount}</Text>
-        <Text style={styles.caption}>{post.caption}</Text>
+        <Text style={styles.likes_counter}>{post.likesCount} likes</Text>
+        <Text style={styles.caption}>
+          <Text style={{fontWeight: 'bold'}}>{post.user.name}</Text>{' '}
+          {post.caption}
+        </Text>
         <Text style={styles.posted_at}>{post.postedAt}</Text>
       </View>
     </View>
@@ -45,7 +48,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   header_container: {
-    marginLeft: 9,
+    marginHorizontal: 9,
     marginBottom: 7,
     flexDirection: 'row',
     alignItems: 'center',
@@ -53,9 +56,6 @@ const styles = StyleSheet.create({
   },
   header_left: {
     flexDirection: 'row',
-  },
-  header_rigth: {
-    marginRight: 15,
   },
   image: {
     height: 40,
@@ -74,22 +74,25 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').width,
   },
   footer_container: {
-    margin: 5,
+    marginHorizontal: 9,
+    marginVertical: 9,
   },
   icons_container: {
     flexDirection: 'row',
-    justifyContent: "space-between"
+    justifyContent: 'space-between',
   },
   left_icons: {
-    flexDirection:"row",
-    width: 80,
-    justifyContent: "space-between"
+    flexDirection: 'row',
+    width: 90,
+    justifyContent: 'space-between',
   },
   likes_counter: {
     fontWeight: 'bold',
+    paddingVertical: 4,
   },
   caption: {},
   posted_at: {
     color: '#8c8c8c',
+    paddingVertical: 4,
   },
 });

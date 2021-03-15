@@ -7,6 +7,7 @@ import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 
 import HomeStackScreen from './homeRoutes';
+import ProfileStackScreen from './profileRoute'
 import DiscoveryScreen from '../screens/DiscoveryScreen';
 import CreatePostScreen from '../screens/CreatePostScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
@@ -47,7 +48,7 @@ const Router = () => (
     <Tab.Screen name="Discovery" component={DiscoveryScreen} />
     <Tab.Screen name="Post" component={CreatePostScreen} />
     <Tab.Screen name="Notifications" component={NotificationsScreen} />
-    <Tab.Screen name="Profile" component={ProfileScreen} />
+    <Tab.Screen name="Profile" component={ProfileStackScreen}  />
   </Tab.Navigator>
 );
 

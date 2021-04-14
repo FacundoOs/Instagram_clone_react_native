@@ -7,7 +7,7 @@ import {
   Image,
   Animated,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import logo from '../assets/images/Instagram-Logo.png';
 import * as Animatable from 'react-native-animatable';
@@ -27,9 +27,18 @@ const AuthScreen = (props) => {
       </View>
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
         <Text>Sign up to see photos and videos from your friends.</Text>
-        <TouchableOpacity style={styles.signInButton} onPress={() => props.navigation.navigate()} >
+        <TouchableOpacity
+          style={styles.signInButton}
+          onPress={() => props.navigation.navigate('SignIn')}>
           <Text style={styles.signIn}>Sign In</Text>
         </TouchableOpacity>
+        <Text>OR</Text>
+        <View>
+          <Text>Don't have an account?</Text>
+          <TouchableOpacity>
+            <Text>Sign Up</Text>
+          </TouchableOpacity>
+        </View>
       </Animatable.View>
     </View>
   );
@@ -40,7 +49,7 @@ export default AuthScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'green',
+    backgroundColor: '#5851DB',
   },
   header: {
     flex: 2,
@@ -53,7 +62,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#fff',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     paddingVertical: 50,
@@ -66,7 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
-    backgroundColor: '#0000ff',
+    backgroundColor: '#405DE6',
     borderRadius: 20,
   },
   signIn: {

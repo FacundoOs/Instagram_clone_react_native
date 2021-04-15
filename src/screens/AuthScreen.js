@@ -26,18 +26,23 @@ const AuthScreen = (props) => {
         />
       </View>
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
-        <Text>Sign up to see photos and videos from your friends.</Text>
+        <Text style={styles.textStyle}>
+          Sign up to see photos and videos from your friends.
+        </Text>
         <TouchableOpacity
           style={styles.signInButton}
           onPress={() => props.navigation.navigate('SignIn')}>
           <Text style={styles.signIn}>Sign In</Text>
         </TouchableOpacity>
-        <Text>OR</Text>
-        <View>
-          <Text>Don't have an account?</Text>
-          <TouchableOpacity>
-            <Text>Sign Up</Text>
-          </TouchableOpacity>
+        <View style={styles.signUpFooter}>
+          <View style={styles.separatorLine}></View>
+          <Text style={styles.textStyle}>
+            Don't have an account?
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('SignUp')}>
+              <Text style={styles.signUp}>Sign Up</Text>
+            </TouchableOpacity>
+          </Text>
         </View>
       </Animatable.View>
     </View>
@@ -69,6 +74,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     alignItems: 'center',
   },
+  textStyle: {
+    fontSize: 16,
+  },
   signInButton: {
     width: Dimensions.get('window').width * 0.7,
     height: Dimensions.get('window').width * 0.1,
@@ -82,5 +90,20 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 24,
     fontWeight: 'bold',
+  },
+  signUpFooter: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  separatorLine: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#aeb6bf',
+  },
+  signUp: {
+    fontWeight: 'bold',
+    paddingLeft: 5,
+    fontSize: 18,
+    alignItems: 'flex-end',
+    color: "#323437"
   },
 });
